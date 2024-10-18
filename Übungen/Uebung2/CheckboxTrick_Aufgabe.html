@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox Aufgabe</title>
+    <style>
+        .checkbox {
+            border: 2px solid black;
+            width: 20px;
+            height: 20px;
+        }
+
+        .frame {
+            border: 2px solid black;
+            max-width: 1000px;
+            width: auto;
+            height: auto;
+        }
+
+        .image {
+            max-width: 99%;
+            height: auto;
+            padding: 5px;
+            opacity: 0;
+        }
+
+        .checkbox:checked ~ .frame .image {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<h1>Übung 2.2</h1>
+<input type="checkbox" class="checkbox" checked> hide and show via checkbox
+<div class="frame">
+    <img src="https://kaul.inf.h-brs.de/ccm/we/ws24/resources/assets/h-brs.jpg" alt="Dein Bild" class="image">
+</div>
+</body>
+</html>
