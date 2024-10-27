@@ -33,7 +33,7 @@
 
 }
 
-
+/*Tablet*/
 @media screen and (min-width: 767px) {
     .grid-container {
         gap: 20px;
@@ -46,7 +46,7 @@
     }
 }
 
-/*Tablet*/
+/*Desktop*/
 @media screen and (min-width: 991px) {
     .grid-container {
         grid-template-columns: 1fr 2fr 1fr;
