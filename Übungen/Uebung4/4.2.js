@@ -10,7 +10,7 @@ function Person(firstname, age) {
 }
 
 // Methode, um ein Auto zur Besitzliste der Person hinzuzufügen
-Person.prototype.addCar = function(car) {
+Person.prototype.addCar = function (car) {
     this.cars.push(car);
 };
 
@@ -48,4 +48,16 @@ ben.addCar(audi1);
 fabian.addCar(audi1);
 
 // Konfliktprüfung
-console.log(conflict([ben, fabian])); // Ausgabe: true, da beide das gleiche Auto besitzen
+console.log("4.2-Section");
+console.log("Bens Autos:");
+ben.cars.forEach(car => {
+    console.log("Modell: " + car.modell + ", Preis: " + car.price);
+});
+console.log("Fabians Autos:");
+fabian.cars.forEach(car => {
+    console.log("Modell: " + car.modell + ", Preis: " + car.price);
+});
+
+console.log("Haben Ben und Fabian das selbe Auto gemietet? =>" + conflict([ben, fabian]));
+// Ausgabe: true, da beide das gleiche Auto besitzen
+console.log("4.2-Section");
