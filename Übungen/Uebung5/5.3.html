@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topologische Sortierung - Web-App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        #inputArea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            overflow-y: auto;
+        }
+        #inputArea[contenteditable] {
+            outline: none;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Topologische Sortierung</h2>
+
+<!-- Eingabebereich für Vorrang-Relationen -->
+<div id="inputArea" contenteditable="true" placeholder="Geben Sie hier die Relationen ein, z.B. 'A -> B'. Jede Relation in eine neue Zeile."></div>
+
+<!-- Button zum Ausführen der Sortierung -->
+<button onclick="performTopologicalSort()">Topologische Sortierung berechnen</button>
+
+<!-- Bereich zur Anzeige des Ergebnisses -->
+<div id="result"></div>
+
+<script>
+    // Funktion zum Erstellen eines Graphen aus den Eingaben
+    function parseInput() {
+        const inputText = document.getElementById("inputArea").innerText.trim();
+        const lines = inputText.split('\n');
+        const graph = {};
+        const inDegree = {};
+
+        // Eingaben verarbeiten und Graph aufbauen
+        lines.forEach(line => {
+            const [start, end] = line.split('->').map(node => node.trim());
+            if (!start || !end) return; // Überspringt ungültige Zeilen
+
+            // Kante zum Graphen hinzufügen
+            if (!graph[start]) graph[start] = [];
+            graph[start].push(end);
+
+            // Knotengrad (inDegree) initialisieren und aktualisieren
+            if (!inDegree[start]) inDegree[start] = 0;
+            if (!inDegree[end]) inDegree[end] = 0;
+            inDegree[end]++;
+        });
+
+        return { graph, inDegree };
+    }
+
+    // Funktion zur Berechnung der topologischen Sortierung
+    function topologicalSort(graph, inDegree) {
+        const queue = [];
+        const sortedOrder = [];
+
+        // Alle Knoten mit inDegree 0 zur Warteschlange hinzufügen
+        for (const node in inDegree) {
+            if (inDegree[node] === 0) {
+                queue.push(node);
+            }
+        }
+
+        // Topologisches Sortieren
+        while (queue.length > 0) {
+            const node = queue.shift();
+            sortedOrder.push(node);
+
+            if (graph[node]) {
+                graph[node].forEach(neighbor => {
+                    inDegree[neighbor]--;
+                    if (inDegree[neighbor] === 0) {
+                        queue.push(neighbor);
+                    }
+                });
+            }
+        }
+
+        // Überprüfen, ob ein Zyklus existiert
+        if (sortedOrder.length !== Object.keys(inDegree).length) {
+            return "Ein Zyklus wurde gefunden, keine topologische Sortierung möglich.";
+        }
+
+        return sortedOrder.join(' -> ');
+    }
+
+    // Funktion zur Ausführung der topologischen Sortierung und Anzeige des Ergebnisses
+    function performTopologicalSort() {
+        const { graph, inDegree } = parseInput();
+        const result = topologicalSort(graph, inDegree);
+        document.getElementById("result").innerText = result;
+    }
+</script>
+
+</body>
+</html>

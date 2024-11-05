@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rednerliste</title>
+
+    <style>
+
+        #redner {
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        #addButton {
+            padding: 6px;
+        }
+
+        #rednerlist li {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        label {
+            font-size: 25px;
+        }
+
+        button {
+            font-size: 18px;
+            background-color: white;
+            border: solid grey;
+            margin-left: 3px;
+        }
+
+        input {
+            height: 13px;
+            margin: 5px;
+            background-color: whitesmoke;
+            border: solid grey;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1 style="font-size: 35px">Rednerliste</h1>
+<label for="redner"><b>Neuer Redner:</b> </label>
+<input type="text" id="redner" placeholder="Hier Namen eingeben">
+<button onclick="addRedner()" id="addButton">Hinzufügen</button>
+<ul id="rednerlist"></ul>
+
+<script>
+
+    let activeTimer = null;
+
+    function addRedner() {
+        // Eingabe des Redners extrahieren und das Eingabefeld leeren
+        let name = document.getElementById("redner").value.trim();
+        document.getElementById("redner").value = "";
+
+        // Liste der Redner und das aktiveTimer-Element abrufen
+        let rednerListe = document.getElementById("rednerlist");
+
+        // Prüfe ob der übergebene Name leer ist
+        if (name !== "") {
+            // Timer des vorher aktiven Redners stoppen
+            if (activeTimer !== null) {
+                clearInterval(activeTimer.activeTimerInterval);
+                activeTimer.activeTimerInterval = null;
+                activeTimer.querySelector("button").textContent = " Start! ";
+            }
+
+            // Neues Listenelement für den Redner erstellen
+            let li = document.createElement("li");
+            li.textContent = name;
+
+            // Timer-Anzeige für den Redner erstellen und dem neuen Redner hinzufügen
+            let timer = document.createElement("span");
+            timer.textContent = " 00:00:00 ";
+            li.appendChild(timer);
+
+            // Start/Stop-Button für den Redner erstellen
+            let startStopButton = document.createElement("button");
+            startStopButton.textContent = " Stop! ";
+            startStopButton.addEventListener("click", event => startStopTimer(li, timer, startStopButton));
+            li.appendChild(startStopButton);
+
+            // Listenelement zum HTML hinzufügen
+            rednerListe.appendChild(li);
+
+            // Aktiven Redner setzen und Timer starten
+            activeTimer = li;
+            startStopButton.textContent = " Stop! ";
+
+            //Zeit aus timer extrahieren
+            let timeArray = timer.textContent.split(":");
+            let hours = parseInt(timeArray[0]);
+            let minutes = parseInt(timeArray[1]);
+            let seconds = parseInt(timeArray[2]);
+
+            // Timer aktualisieren und formatieren
+            li.activeTimerInterval = setInterval(function () {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes === 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+                timer.textContent = " " + timeFormat(hours) + ":" + timeFormat(minutes) + ":" + timeFormat(seconds) + " ";
+            }, 1000);
+        }
+    }
+
+    function startStopTimer(li, timerElement, startStopButton) {
+        if (li === activeTimer) { // Der aktive Redner hat auf "Stop" geklickt
+            clearInterval(li.activeTimerInterval);
+            li.activeTimerInterval = null;
+            activeTimer = null;
+            startStopButton.textContent = " Start! ";
+        } else { // Ein anderer Redner hat auf "Start" geklickt
+            if (activeTimer !== null) {
+                clearInterval(activeTimer.activeTimerInterval);
+                activeTimer.activeTimerInterval = null;
+                activeTimer.querySelector("button").textContent = " Start! ";
+            }
+
+            // Aktiven Redner setzen und Timer starten
+            activeTimer = li;
+            startStopButton.textContent = " Stop! ";
+
+            let timeArray = timerElement.textContent.split(":");
+            let hours = parseInt(timeArray[0]);
+            let minutes = parseInt(timeArray[1]);
+            let seconds = parseInt(timeArray[2]);
+
+            li.activeTimerInterval = setInterval(function () {
+                // Timer aktualisieren und formatieren
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes === 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+
+                timerElement.textContent = " " + timeFormat(hours) + ":" + timeFormat(minutes) + ":" + timeFormat(seconds) + " ";
+            }, 1000);
+        }
+    }
+    function timeFormat(num) {// Funktion zur Formatierung der Zeit (fügt eine führende Null hinzu, wenn nötig)
+        return num < 10 ? "0" + num : num;
+    }
+
+
+</script>
+</body>
+</html>

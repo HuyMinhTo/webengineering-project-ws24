@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Operationen Performance-Messungen</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Performance-Messungen von DOM-Operationen</h2>
+
+<!-- Element, dessen Inhalt wir mit verschiedenen Methoden auslesen werden -->
+<div id="testElement">
+    <p>Beispielinhalt für die Performance-Messungen.</p>
+</div>
+
+<!-- Tabelle zur Darstellung der Messergebnisse -->
+<table>
+    <thead>
+    <tr>
+        <th>Methode</th>
+        <th>Zeit in Millisekunden</th>
+    </tr>
+    </thead>
+    <tbody id="resultsTable">
+    </tbody>
+</table>
+
+<script>
+    // Funktion zum Messen der Zeit für eine bestimmte DOM-Operation
+    function measurePerformance(operationName, callback) {
+        // Startzeit festhalten
+        const start = performance.now();
+
+        // Die DOM-Operation ausführen
+        callback();
+
+        // Endzeit festhalten
+        const end = performance.now();
+
+        // Die benötigte Zeit berechnen und in die Tabelle eintragen
+        const time = end - start;
+        addResultToTable(operationName, time.toFixed(3));
+    }
+
+    // Funktion zum Hinzufügen des Ergebnisses zur Tabelle
+    function addResultToTable(operationName, time) {
+        const resultsTable = document.getElementById('resultsTable');
+        const row = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = operationName;
+
+        const timeCell = document.createElement('td');
+        timeCell.textContent = `${time} ms`;
+
+        row.appendChild(nameCell);
+        row.appendChild(timeCell);
+        resultsTable.appendChild(row);
+    }
+
+    // Referenz zum Test-Element
+    const testElement = document.getElementById('testElement');
+
+    // Performance-Messungen für verschiedene DOM-Operationen
+    measurePerformance('innerHTML', () => {
+        // innerHTML auslesen
+        let content = testElement.innerHTML;
+    });
+
+    measurePerformance('innerText', () => {
+        // innerText auslesen
+        let content = testElement.innerText;
+    });
+
+    measurePerformance('textContent', () => {
+        // textContent auslesen
+        let content = testElement.textContent;
+    });
+
+    measurePerformance('outerHTML', () => {
+        // outerHTML auslesen
+        let content = testElement.outerHTML;
+    });
+</script>
+
+</body>
+</html>
