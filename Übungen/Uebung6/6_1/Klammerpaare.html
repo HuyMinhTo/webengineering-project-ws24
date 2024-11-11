@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klammerpaare prüfen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        #inputField {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+        #inputField.error {
+            border-color: red;
+            background-color: #fdd;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Klammerprüfung</h2>
+<p>Geben Sie eine Zeichenkette mit Klammern ein:</p>
+
+<!-- Eingabefeld für den Text -->
+<input type="text" id="inputField" placeholder="z.B. [(a + b) * {c + d}]">
+
+<!-- Ergebnisbereich -->
+<div id="result"></div>
+
+<script>
+    // Definieren der Klammerpaare
+    const bracketPairs = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    };
+
+    // Funktion zur Überprüfung der korrekten Klammer-Schachtelung
+    function isBalanced(input, bracketPairs) {
+        const stack = [];
+        const openingBrackets = Object.keys(bracketPairs);
+        const closingBrackets = Object.values(bracketPairs);
+
+        for (let char of input) {
+            if (openingBrackets.includes(char)) {
+                // Öffnende Klammer: auf den Stack legen
+                stack.push(char);
+            } else if (closingBrackets.includes(char)) {
+                // Schließende Klammer: Prüfen, ob sie zum letzten Element im Stack passt
+                const lastBracket = stack.pop();
+                if (bracketPairs[lastBracket] !== char) {
+                    return false; // Klammern passen nicht zusammen
+                }
+            }
+        }
+
+        // Der Stack muss am Ende leer sein, um eine vollständige Paarung zu garantieren
+        return stack.length === 0;
+    }
+
+    // Event-Listener für die Eingabeüberprüfung
+    document.getElementById("inputField").addEventListener("input", function () {
+        const input = this.value;
+        const isCorrect = isBalanced(input, bracketPairs);
+
+        // Ergebnis-Anzeige und Styling basierend auf der Überprüfung
+        const resultDiv = document.getElementById("result");
+        if (isCorrect) {
+            this.classList.remove("error");
+            resultDiv.textContent = "Alle Klammern sind korrekt geschachtelt!";
+        } else {
+            this.classList.add("error");
+            resultDiv.textContent = "Fehlerhafte Klammer-Schachtelung!";
+        }
+
+        // Verwenden von console.assert für Debugging-Tests
+        console.assert(isCorrect, "Die Klammern sind nicht korrekt geschachtelt:", input);
+    });
+</script>
+
+</body>
+</html>
