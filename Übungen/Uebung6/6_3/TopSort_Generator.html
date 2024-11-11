@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vorrang-Klasse mit topologischer Iterierbarkeit</title>
+</head>
+<body>
+
+<h2>Vorrang-Klasse mit topologischer Iterierbarkeit</h2>
+<p>Öffne die Konsole, um die topologische Sortierung zu sehen.</p>
+
+<script>
+    class Vorrang {
+        constructor(relations) {
+            this.graph = new Map();
+            this.inDegree = new Map();
+
+            // Initialisieren des Graphen und der In-Degree Map
+            relations.forEach(([predecessor, successor]) => {
+                if (!this.graph.has(predecessor)) this.graph.set(predecessor, []);
+                if (!this.graph.has(successor)) this.graph.set(successor, []);
+                this.graph.get(predecessor).push(successor);
+
+                if (!this.inDegree.has(predecessor)) this.inDegree.set(predecessor, 0);
+                if (!this.inDegree.has(successor)) this.inDegree.set(successor, 0);
+                this.inDegree.set(successor, this.inDegree.get(successor) + 1);
+            });
+        }
+
+        // Generator-Funktion für die topologische Sortierung
+        *topologicalSort() {
+            const queue = [];
+            const inDegreeCopy = new Map(this.inDegree); // Kopie der inDegree Map für die Iteration
+
+            // Alle Knoten mit inDegree 0 zur Warteschlange hinzufügen
+            for (const [node, degree] of inDegreeCopy.entries()) {
+                if (degree === 0) queue.push(node);
+            }
+
+            // Topologisches Sortieren
+            while (queue.length > 0) {
+                const node = queue.shift();
+                yield node; // Gibt den Knoten in topologischer Reihenfolge zurück
+
+                for (const neighbor of this.graph.get(node) || []) {
+                    inDegreeCopy.set(neighbor, inDegreeCopy.get(neighbor) - 1);
+                    if (inDegreeCopy.get(neighbor) === 0) {
+                        queue.push(neighbor);
+                    }
+                }
+            }
+
+            // Überprüfen, ob ein Zyklus existiert
+            if ([...inDegreeCopy.values()].some(degree => degree > 0)) {
+                throw new Error("Ein Zyklus wurde gefunden, keine topologische Sortierung möglich.");
+            }
+        }
+
+        // Ermöglicht Iteration mit for...of
+        [Symbol.iterator]() {
+            return this.topologicalSort();
+        }
+    }
+
+    // Test-Setup und Ausführung
+    const studentLeben = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"]
+    ]);
+
+    // Iteriere über die sortierten Elemente und gebe sie in der Konsole aus
+    for (const task of studentLeben) {
+        console.log(task);
+    }
+
+    // Test mit console.assert
+    const result = Array.from(studentLeben);
+    console.assert(result.join(" -> ") === "schlafen -> essen -> studieren -> prüfen", "Die topologische Sortierung ist nicht korrekt.");
+</script>
+
+</body>
+</html>
