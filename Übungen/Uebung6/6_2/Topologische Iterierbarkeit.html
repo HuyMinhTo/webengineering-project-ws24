@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topologische Iterierbarkeit</title>
+</head>
+<body>
+
+<h2>Topologische Iterierbarkeit mit Vorrang-Relationen</h2>
+<p>Offene Konsole für das Ergebnis.</p>
+
+<script>
+    class Vorrang {
+        constructor(relations) {
+            // `relations` ist ein Array von Paaren, die die Vorrang-Relationen beschreiben.
+            // Beispiel: [["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"]]
+            this.relations = relations;
+            this.graph = {};
+            this.inDegree = {};
+            this.sorted = null; // Ergebnis wird "lazy" berechnet und gespeichert
+        }
+
+        // Funktion zum Aufbau des Graphen
+        _buildGraph() {
+            for (const [predecessor, successor] of this.relations) {
+                if (!this.graph[predecessor]) this.graph[predecessor] = [];
+                if (!this.graph[successor]) this.graph[successor] = [];
+
+                // Kante hinzufügen
+                this.graph[predecessor].push(successor);
+
+                // Knotengrad (inDegree) aktualisieren
+                if (!this.inDegree[predecessor]) this.inDegree[predecessor] = 0;
+                if (!this.inDegree[successor]) this.inDegree[successor] = 0;
+                this.inDegree[successor]++;
+            }
+        }
+
+        // Funktion zur Berechnung der topologischen Sortierung
+        *topologicalSort() {
+            // Graph aufbauen, falls noch nicht geschehen
+            if (this.sorted === null) {
+                this._buildGraph();
+                const queue = [];
+                const result = [];
+
+                // Alle Knoten mit inDegree 0 zur Warteschlange hinzufügen
+                for (const node of Object.keys(this.inDegree)) {
+                    if (this.inDegree[node] === 0) queue.push(node);
+                }
+
+                // Topologisches Sortieren
+                while (queue.length > 0) {
+                    const node = queue.shift();
+                    result.push(node);
+
+                    for (const neighbor of this.graph[node] || []) {
+                        this.inDegree[neighbor]--;
+                        if (this.inDegree[neighbor] === 0) queue.push(neighbor);
+                    }
+                }
+
+                // Prüfen, ob ein Zyklus existiert
+                if (result.length !== Object.keys(this.inDegree).length) {
+                    throw new Error("Ein Zyklus wurde gefunden, keine topologische Sortierung möglich.");
+                }
+
+                this.sorted = result; // Ergebnis speichern, um bei erneutem Zugriff nicht neu zu berechnen
+            }
+
+            // Ergebnisse "lazy" durch einen Generator zurückgeben
+            for (const item of this.sorted) {
+                yield item;
+            }
+        }
+
+        // Symbol.iterator nutzen, um die Klasse iterierbar zu machen
+        [Symbol.iterator]() {
+            return this.topologicalSort();
+        }
+    }
+
+    // Beispiel der Vorrang-Relationen
+    const studentLeben = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"]
+    ]);
+
+    // for...of-Schleife zur Ausgabe der sortierten Elemente
+    for (const task of studentLeben) {
+        console.log(task);
+    }
+
+    // Test: Stellen Sie sicher, dass die Sortierung korrekt ist
+    const result = Array.from(studentLeben);
+    console.assert(result.join(" -> ") === "schlafen -> essen -> studieren -> prüfen", "Die topologische Sortierung ist nicht korrekt.");
+</script>
+
+</body>
+</html>
