@@ -22,18 +22,20 @@ function mul(x, y) {
 
 //4.Eine Addierer-Funktion addf(), so dass addf(x)(y) genau x + y zurückgibt.
 // (Es haben also zwei Funktionsaufrufe zu erfolgen. addf(x) liefert eine Funktion, die auf y angewandt wird.)
-function addf(x) {
+export function addf(x) {
     return function (y) {
         return x + y;
     }
 }
+
+
 
 //5.Eine Funktion applyf(), die aus einer binären Funktion wie add(x,y) eine Funktion addf berechnet,
 // die mit zwei Aufrufen das gleiche Ergebnis liefert,
 // z.B. addf = applyf(add); addf(x)(y) soll add(x,y) liefern.
 // Entsprechend applyf(mul)(5)(6) soll 30 liefern, wenn mul die binäre Multiplikation ist.
 
-function applyf(fn) {
+export function applyf(fn) {
     return function (x) {
         return function (y) {
             return fn(x, y);
