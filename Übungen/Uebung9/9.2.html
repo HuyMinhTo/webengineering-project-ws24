@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balkendiagramm in SVG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .chart {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        .bar {
+            fill: #6baed6;
+            transition: height 0.5s, y 0.5s;
+        }
+
+        .bar:hover {
+            fill: #2171b5;
+        }
+
+        .label {
+            font-size: 12px;
+            fill: black;
+        }
+    </style>
+</head>
+<body>
+<h1>Statistik-Balkendiagramm</h1>
+<svg class="chart" viewBox="0 0 600 400"></svg>
+
+<script>
+    // Beispiel-Daten (JSON-Format)
+    const data = [
+        { name: "Jan", value: 30 },
+        { name: "Feb", value: 80 },
+        { name: "Mar", value: 45 },
+        { name: "Apr", value: 60 },
+        { name: "May", value: 20 },
+        { name: "Jun", value: 90 }
+    ];
+
+    // SVG-Element und Dimensionen
+    const svg = document.querySelector('.chart');
+    const width = 600;
+    const height = 400;
+    const barWidth = 80;
+    const maxBarHeight = 300;
+
+    // Maximalwert ermitteln (für Skalierung)
+    const maxValue = Math.max(...data.map(d => d.value));
+
+    // Balkendiagramm erzeugen
+    data.forEach((d, index) => {
+        const x = index * (barWidth + 10) + 50;
+        const barHeight = (d.value / maxValue) * maxBarHeight;
+
+        // Balken
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("x", x);
+        rect.setAttribute("y", height - barHeight - 50); // Y-Koordinate basierend auf Höhe
+        rect.setAttribute("width", barWidth);
+        rect.setAttribute("height", barHeight);
+        rect.setAttribute("class", "bar");
+        svg.appendChild(rect);
+
+        // Beschriftung (Label unter Balken)
+        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("x", x + barWidth / 2);
+        label.setAttribute("y", height - 30);
+        label.setAttribute("class", "label");
+        label.setAttribute("text-anchor", "middle");
+        label.textContent = d.name;
+        svg.appendChild(label);
+
+        // Werteanzeige (über Balken)
+        const valueText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        valueText.setAttribute("x", x + barWidth / 2);
+        valueText.setAttribute("y", height - barHeight - 60);
+        valueText.setAttribute("class", "label");
+        valueText.setAttribute("text-anchor", "middle");
+        valueText.textContent = d.value;
+        svg.appendChild(valueText);
+    });
+</script>
+</body>
+</html>
