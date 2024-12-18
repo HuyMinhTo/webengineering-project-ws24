@@ -1,0 +1,35 @@
+/* Navigation responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Tablet Ansicht: 2 Spalten */
+@media (max-width: 1024px) {
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
+    }
+
+    /* Zentrierung der letzten Karte bei ungerader Anzahl */
+    .topics-grid .topic-card:nth-last-child(1):nth-child(odd) {
+        grid-column: span 2; /* Letzte Karte nimmt 2 Spalten ein */
+        justify-self: center; /* Zentriert innerhalb der Reihe */
+    }
+}
+
+/* Mobile Ansicht: 2 Spalten */
+@media (max-width: 768px) {
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
+    }
+
+    /* Letzte Karte bei ungerader Anzahl */
+    .topics-grid .topic-card:nth-last-child(1):nth-child(odd) {
+        grid-column: span 2;
+        justify-self: center;
+    }
+}
+
+
