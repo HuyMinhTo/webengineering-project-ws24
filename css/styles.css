@@ -111,8 +111,8 @@ footer {
    Topic-Cards
 =========================== */
 .topic-card {
-    background: #1A2238; /* Dunkelblau */
-    color: #FFFFFF; /* Weißer Text */
+    background: #1A2238;
+    color: #FFFFFF;
     text-decoration: none;
     padding: 1.5rem;
     text-align: center;
@@ -121,14 +121,14 @@ footer {
     font-size: 1.1rem;
     position: relative;
     overflow: hidden;
-    border: 2px solid #5E81AC; /* Hellblauer Rahmen */
+    border: 2px solid #5E81AC;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .topic-card:hover {
     transform: scale(1.05);
-    background: #5E81AC; /* Hellblauer Hintergrund */
-    color: #1A2238; /* Dunkelblauer Text */
+    background: #5E81AC;
+    color: #1A2238;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -140,7 +140,7 @@ footer {
 }
 
 .topic-card:hover i {
-    transform: translateY(-5px); /* Icon hebt sich leicht */
+    transform: translateY(-5px);
 }
 
 /* ===========================
