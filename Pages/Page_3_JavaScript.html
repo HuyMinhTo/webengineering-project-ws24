@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="../css/pages/page3/pages_js_styles.css">
+    <link rel="stylesheet" href="../css/pages/page3/pages_js_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Javascript</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
+</header>
+<main>
+    <!-- Funktionen Showcase -->
+    <section class="functions-section">
+        <h2>Willkommen zur Javascript-Seite!</h2>
+
+        <!-- Identity-Funktion -->
+        <div class="function-box">
+            <h3>1. Identity-Funktion</h3>
+            <p>Diese Funktion gibt den eingegebenen Wert unverändert zurück.</p>
+            <pre>function identity(x) {
+    return x;
+}</pre>
+            <div class="input-row">
+                <input type="text" id="identity-input" placeholder="Wert eingeben">
+                <button onclick="runIdentity()">Testen</button>
+            </div>
+            <p>Output: <span id="identity-output"></span></p>
+        </div>
+
+        <!-- Additions-Funktion -->
+        <div class="function-box">
+            <h3>2. Additions-Funktion</h3>
+            <p>Diese Funktion berechnet die Summe zweier Zahlen.</p>
+            <pre>function add(x, y) {
+    return x + y;
+}</pre>
+            <div class="input-row">
+                <input type="number" id="add-input1" placeholder="Wert 1">
+                <input type="number" id="add-input2" placeholder="Wert 2">
+                <button onclick="runAdd()">Berechnen</button>
+            </div>
+            <p>Output: <span id="add-output"></span></p>
+        </div>
+
+        <!-- Potenzierungs-Funktion -->
+        <div class="function-box">
+            <h3>3. Potenzierungs-Funktion</h3>
+            <p>Diese Funktion berechnet die Potenz einer Zahl (Basis hoch Exponent).</p>
+            <pre>function power(base, exponent) {
+    return Math.pow(base, exponent);
+}</pre>
+            <div class="input-row">
+                <input type="number" id="power-input1" placeholder="Basis">
+                <input type="number" id="power-input2" placeholder="Exponent">
+                <button onclick="runPower()">Berechnen</button>
+            </div>
+            <p>Output: <span id="power-output"></span></p>
+        </div>
+    </section>
+
+    <!-- Autos Showcase -->
+    <section class="cars-section">
+        <h2>Autos und Besitzer</h2>
+
+        <!-- Personen hinzufügen -->
+        <div class="input-row">
+            <input type="text" id="person-name" placeholder="Name der Person">
+            <button class="btn" onclick="addPerson()">Person hinzufügen</button>
+        </div>
+
+        <!-- Autos hinzufügen -->
+        <div class="input-row">
+            <input type="text" id="car-model" placeholder="Modell des Autos">
+            <button class="btn" onclick="addCar()">Auto hinzufügen</button>
+        </div>
+
+        <!-- Autos Personen zuweisen -->
+        <div class="input-row">
+            <select id="person-selection">
+                <option value="" disabled selected>Person auswählen</option>
+            </select>
+            <select id="car-selection">
+                <option value="" disabled selected>Auto auswählen</option>
+            </select>
+            <button class="btn" onclick="assignCar()">Auto zuweisen</button>
+        </div>
+
+        <!-- Autos entfernen -->
+        <div class="input-row">
+            <select id="remove-car-selection">
+                <option value="" disabled selected>Auto entfernen</option>
+            </select>
+            <button class="btn" onclick="removeCar()">Auto entfernen</button>
+        </div>
+
+        <!-- Konfliktanzeige -->
+        <p id="car-status"></p>
+
+        <!-- Personen- und Autos-Anzeige -->
+        <div id="cars-output"></div>
+    </section>
+    <script src="../js/pages/pages_3_js.js"></script>
+</main>
+</body>
+</html>

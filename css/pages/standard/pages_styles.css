@@ -1,0 +1,225 @@
+/* ===========================
+   Allgemeine Stile
+=========================== */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===========================
+   Header-Section
+=========================== */
+header {
+    position: relative;
+    padding: 1.5rem 2rem;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex; /* Flexbox aktivieren */
+    justify-content: space-between; /* Platz zwischen H1 und Button */
+    align-items: center; /* Vertikale Ausrichtung */
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    flex-wrap: nowrap; /* Inhalte bleiben in einer Zeile */
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #5E81AC;
+    text-shadow: 0 0 10px rgba(94, 129, 172, 0.7);
+}
+
+.back-button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Verhindert Zeilenumbrüche im Button */
+}
+
+.back-button:hover {
+    background-color: #A5C9CA;
+}
+
+/* ===========================
+   Intro Section
+=========================== */
+.intro-section {
+    margin-bottom: 2rem;
+}
+
+.highlight-list {
+    list-style-type: disc;
+    margin: 1rem auto;
+    padding: 0;
+    max-width: 600px;
+    text-align: left;
+}
+
+.highlight-list li {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+/* ===========================
+   Navigation Section
+=========================== */
+.navigation-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.navigation-list li {
+    margin: 0;
+}
+
+.navigation-list a {
+    text-decoration: none;
+    color: #5E81AC;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navigation-list a:hover {
+    color: #A5C9CA;
+}
+
+/* ===========================
+   Gallery Section
+=========================== */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.image-gallery img {
+    border: 2px solid #5E81AC;
+    border-radius: 8px;
+    max-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   Table Section
+=========================== */
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    background-color: #2A2D40;
+}
+
+.table-section th, .table-section td {
+    border: 1px solid #5E81AC;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+.table-section th {
+    background-color: #5E81AC;
+    color: #1A2238;
+}
+
+.table-section tr:nth-child(even) {
+    background-color: #2A2D40;
+}
+
+/* ===========================
+   Anmeldeformular-Styles
+=========================== */
+.form-section {
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: left;
+    background-color: #2A2D40;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-section h2 {
+    text-align: center;
+    color: white;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #A5C9CA;
+    font-weight: bold;
+}
+
+.registration-form input {
+    width: 97%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #5E81AC;
+    border-radius: 5px;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.registration-form input::placeholder {
+    color: #A5C9CA;
+}
+
+.registration-form input:focus {
+    outline: none;
+    border-color: #A5C9CA;
+    background-color: #2A2D40;
+}
+
+.submit-button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #A5C9CA;
+    transform: scale(1.05);
+}
+
+

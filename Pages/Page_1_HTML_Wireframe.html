@@ -3,25 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thema 1</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../css/pages/standard/pages_styles.css">
+    <link rel="stylesheet" href="../css/pages/standard/pages_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 <header>
-    <h1>Thema 1</h1>
-    <nav>
-        <a href="../index.html">Zurück zur Startseite</a>
-    </nav>
+    <h1>HTML</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
 </header>
 <main>
-    <section>
-        <h2>Thema 1</h2>
-        <p>Inhalt für das erste Thema hier.</p>
+    <section class="intro-section">
+        <h2>Willkommen zu meinem HTML-Wireframe!</h2>
+        <p>Diese Seite umfasst:</p>
+        <ul class="highlight-list">
+            <li>HTML-Grundgerüst</li>
+            <li>Hyperlinks</li>
+            <li>Bilder</li>
+            <li>Listen</li>
+            <li>Tabellen</li>
+        </ul>
+    </section>
+
+    <section class="navigation-section">
+        <h2>Beispiel einer Navigation mit Hyperlinks</h2>
+        <nav>
+            <ul class="navigation-list">
+                <li><a href="../about.html">Über mich</a></li>
+                <li><a href="../contact.html">Kontakt</a></li>
+                <li><a href="../index.html">Zurück zur Startseite</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Bildergalerie</h2>
+        <div class="image-gallery">
+            <img src="../assets/images/blue1.jpg" alt="Bild 1">
+            <img src="../assets/images/blue3.jpg" alt="Bild 3">
+            <img src="../assets/images/blue2.jpg" alt="Bild 2">
+        </div>
+    </section>
+
+    <section class="table-section">
+        <h2>Tabelle</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Fähigkeit</th>
+                <th>Beschreibung</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>HTML</td>
+                <td>Erstellen von strukturierten Dokumenten</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>Styling und Layout von Seiten</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Interaktive Funktionen hinzufügen</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="form-section">
+        <h2>Anmeldeformular</h2>
+        <p>Bitte fülle das folgende Formular aus, um dich anzumelden:</p>
+        <form class="registration-form" action="#" method="post">
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" name="username" placeholder="Dein Benutzername" required>
+
+            <label for="email">E-Mail-Adresse:</label>
+            <input type="email" id="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" placeholder="Dein Passwort" required>
+
+            <label for="confirm-password">Passwort bestätigen:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Passwort bestätigen"
+                   required>
+
+            <button type="submit" class="submit-button">
+                <i class="fa-solid fa-paper-plane"></i> Abschicken
+            </button>
+        </form>
     </section>
 </main>
-<footer>
-    <p>&copy; 2025 Solution Navigator</p>
-</footer>
+<script src="../js/main.js"></script>
 </body>
 </html>

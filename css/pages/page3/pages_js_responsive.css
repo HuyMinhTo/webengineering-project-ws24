@@ -1,0 +1,106 @@
+/* ===========================
+   Mobile Ansicht: Bis 768px
+=========================== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header .back-button {
+        margin-top: 0.5rem;
+        white-space: nowrap; /* Kein Zeilenumbruch im Button */
+        width: auto; /* Behalte Auto-Breite bei */
+        max-width: 200px; /* Setze maximale Breite */
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .functions-section, .cars-section {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .function-box, .cars-section {
+        padding: 1rem;
+    }
+
+    .input-row {
+        flex-direction: column; /* Eingaben und Buttons untereinander */
+        gap: 0.5rem;
+    }
+
+    .input-row input, .input-row select {
+        width: 100%; /* Breite auf 100% setzen */
+    }
+
+    .input-row button {
+        width: 100%; /* Buttons nehmen die volle Breite ein */
+    }
+
+    #cars-output {
+        font-size: 0.9rem; /* Kleinere Schrift für kleinere Bildschirme */
+    }
+}
+
+/* ===========================
+   Tablet Ansicht: 769px - 1024px
+=========================== */
+@media (max-width: 1024px) {
+    header {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .functions-section, .cars-section {
+        max-width: 700px;
+        padding: 1.5rem;
+    }
+
+    .input-row {
+        gap: 0.75rem;
+    }
+
+    .input-row input, .input-row select {
+        flex: 1; /* Flexibler Platz für Input und Dropdown */
+    }
+
+    .input-row button {
+        flex: 0.5; /* Buttons etwas kleiner als Inputs */
+    }
+}
+
+/* ===========================
+   Große Bildschirme: Ab 1025px
+=========================== */
+@media (min-width: 1025px) {
+    .functions-section, .cars-section {
+        max-width: 800px;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    .input-row input, .input-row select {
+        flex: 2; /* Mehr Platz für Eingabefelder auf großen Bildschirmen */
+    }
+
+    .input-row button {
+        flex: 1; /* Buttons bleiben kleiner */
+    }
+}

@@ -1,0 +1,133 @@
+/* ===========================
+   Allgemeine Stile
+=========================== */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===========================
+   Header-Section
+=========================== */
+header {
+    background-color: #1A2238;
+    color: #FFFFFF;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #5E81AC;
+    text-shadow: 0 0 10px rgba(94, 129, 172, 0.7);
+}
+
+.back-button {
+    width: auto; /* Keine automatische Anpassung an volle Breite */
+    max-width: 200px; /* Maximale Breite */
+    white-space: nowrap; /* Verhindert, dass der Text auf mehrere Zeilen umbricht */
+    text-align: center;
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #A5C9CA;
+}
+
+/* ===========================
+   Funktionen-Section
+=========================== */
+.functions-section, .cars-section {
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.function-box, .cars-section {
+    background-color: #2A2D40;
+    border: 1px solid #5E81AC;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.function-box pre, #cars-output {
+    background-color: #1A2238;
+    border: 1px solid #5E81AC;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: #A5C9CA;
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   Input und Buttons
+=========================== */
+.input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.input-row input, .input-row select {
+    flex: 2;
+    padding: 0.5rem;
+    border: 1px solid #5E81AC;
+    border-radius: 5px;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.input-row button {
+    padding: 0.5rem 1rem;
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-row button:hover {
+    background-color: #A5C9CA;
+    transform: scale(1.05);
+}
+
+.cars-section p {
+    color: #A5C9CA;
+}

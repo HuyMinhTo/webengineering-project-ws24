@@ -11,3 +11,11 @@ window.addEventListener("scroll", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const backButton = document.querySelector(".back-button");
+    backButton.addEventListener("click", () => {
+        window.location.href = "../index.html"; // Zurück zur Startseite
+    });
+});
+
+
