@@ -3,26 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standard-Seite</title>
-    <link rel="stylesheet" href="../css/pages/standard/pages_styles.css">
+    <title>DOM-Manipulation Showcase</title>
+    <link rel="stylesheet" href="../css/pages/page4/pages_dom_styles.css">
+    <link rel="stylesheet" href="../css/pages/page4/pages_dom_responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 <header>
-    <h1>Seitenüberschrift</h1>
+    <h1>DOM-Manipulation</h1>
     <button class="back-button" onclick="window.location.href='../index.html'">
         <i class="fa-solid fa-arrow-left"></i> Home
     </button>
 </header>
 <main>
-    <section class="content">
-        <h2>Inhalt dieser Seite</h2>
-        <p>Hier kommt der Inhalt deiner Seite hin.</p>
+    <section class="intro-section">
+        <h2>Was ist DOM-Manipulation?</h2>
+        <p>
+            Die DOM-Manipulation ermöglicht es Entwicklern, dynamische Inhalte in einer HTML-Seite zu erstellen,
+            zu ändern oder zu entfernen. Hier siehst du praktische Beispiele:
+        </p>
+    </section>
+
+    <!-- Rednerliste Showcase -->
+    <section class="redner-section">
+        <div class="redner-container">
+            <h2>1. Rednerliste mit Timer</h2>
+            <p>Füge Redner hinzu und steuere die Timer für jeden Redner individuell.</p>
+            <div class="input-row">
+                <input type="text" id="redner" placeholder="Hier Namen eingeben">
+                <button onclick="addRedner()">Hinzufügen</button>
+            </div>
+            <ul id="rednerlist"></ul>
+        </div>
+    </section>
+
+    <!-- Topologische Sortierung Showcase -->
+    <section class="topsort-section">
+        <div class="topsort-container">
+            <h2>2. Topologische Sortierung</h2>
+            <p>Gib Vorrang-Relationen ein und berechne die topologische Sortierung.</p>
+            <div class="input-row">
+                <textarea id="inputArea" placeholder="Gebe Relationen ein, z.B. 'A -> B'"></textarea>
+            </div>
+            <button onclick="performTopologicalSort()">Berechnen</button>
+            <p id="result"></p>
+        </div>
     </section>
 </main>
-<script src="../js/main.js"></script>
+<script src="../js/pages/pages_4_dom.js"></script>
 </body>
 </html>
