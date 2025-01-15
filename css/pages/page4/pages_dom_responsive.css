@@ -9,6 +9,10 @@
     }
 
     button {
-        width: 100%;
+        width: 30%;
+    }
+
+    .back-button{
+        width: 20%;
     }
 }

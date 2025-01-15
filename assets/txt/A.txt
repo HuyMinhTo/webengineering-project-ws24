@@ -1,0 +1,5 @@
+Dies ist der Anfang eines Satzes,
+der in mehreren Zeilen
+aufgeteilt ist, um die Funktion
+der Datei A zu testen.
+Jede Zeile beginnt hier.

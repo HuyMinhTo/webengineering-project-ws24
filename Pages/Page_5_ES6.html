@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Showcase</title>
+    <link rel="stylesheet" href="../css/pages/page5/pages_es6_styles.css">
+    <link rel="stylesheet" href="../css/pages/page5/pages_es6_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>ECMAScript 6</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
+</header>
+<main>
+    <section class="section-container">
+        <h2>ECMAScript 6</h2>
+        <p>
+            <b>ECMAScript 6</b> (ES6) ist eine der bedeutendsten Weiterentwicklungen von JavaScript,
+            die zahlreiche neue Features wie Template-Strings, neue Methoden für Arrays und Objekte
+            sowie Promises und Module einführt. Diese Seite demonstriert einige dieser Funktionen anhand praktischer Beispiele.
+        </p>
+    </section>
+
+    <!-- Klammerprüfung Showcase -->
+    <section class="section-container">
+        <h2>1. Klammerprüfung</h2>
+        <p>Geben Sie eine Zeichenkette mit Klammern ein. Rot zeigt Fehler an.</p>
+        <div class="input-row">
+            <input type="text" id="bracket-input" placeholder="z.B. [(a + b) * {c + d}]">
+            <p id="bracket-result"></p>
+        </div>
+    </section>
+
+    <!-- Topologische Iterierbarkeit Showcase -->
+    <section class="section-container">
+        <h2>2. Topologische Iterierbarkeit</h2>
+        <p>Gib Vorrang-Relationen ein und iteriere über die Ergebnisse in der Konsole.</p>
+        <textarea id="toposort-input" placeholder="z.B. schlafen -> essen -> studieren -> prüfen"></textarea>
+        <button onclick="runToposort()">Topologische Sortierung starten</button>
+        <p id="toposort-result"></p>
+    </section>
+
+    <!-- filter/map/reduce Showcase -->
+    <section class="section-container">
+        <h2>3. Filter/Map/Reduce</h2>
+        <p>Nutze die ES6-Methoden, um Daten zu transformieren.</p>
+        <button onclick="runFilterMapReduce()">Beispiele anzeigen</button>
+        <pre id="filter-map-reduce-output"></pre>
+    </section>
+</main>
+<script src="../js/pages/pages_5_es6.js" type="module"></script>
+</body>
+</html>

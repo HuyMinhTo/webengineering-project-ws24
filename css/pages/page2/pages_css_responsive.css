@@ -1,71 +1,96 @@
 /* ===========================
-   Responsive Design
+   Responsive Styles
 =========================== */
 
-/* Tablet Ansicht */
-@media (max-width: 1024px) {
+/* Kleinere Tablets und größere Smartphones (max-width: 768px) */
+@media (max-width: 768px) {
     header {
-        padding: 1rem;
-        flex-wrap: wrap; /* Inhalte umbrechen, falls nötig */
-        text-align: center;
+        flex-direction: column; /* Header-Elemente übereinander anordnen */
+        align-items: center; /* Elemente zentrieren */
+        gap: 1rem; /* Abstand zwischen Header-Elementen */
     }
 
     header h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.5rem; /* Verkleinert die Schriftgröße des Titels */
+        text-align: center; /* Text zentrieren */
     }
 
     .back-button {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem; /* Kleinere Schriftgröße */
+        padding: 0.4rem 0.8rem; /* Kleinere Button-Größe */
+        width: auto; /* Breite automatisch anpassen */
+        border-radius: 5px; /* Runde Ecken */
     }
 
-    .progress-bar-container {
-        width: 90%; /* Fortschrittsbalken nimmt mehr Breite ein */
+    main {
+        padding: 1.5rem; /* Weniger Innenabstand */
     }
 
-    .progress-info {
-        flex-direction: column; /* Prozent und Restart-Button untereinander */
-        gap: 0.5rem;
+    .output-container button {
+        width: 100%; /* Button auf volle Breite */
+        font-size: 0.9rem; /* Kleinere Schriftgröße */
+        padding: 0.6rem; /* Weniger Platz */
     }
 
-    .cards-container {
-        flex-wrap: wrap; /* Karten umbrechen */
-        gap: 1rem;
+    pre {
+        font-size: 0.85rem; /* Kleinere Schriftgröße */
+        padding: 0.8rem; /* Weniger Innenabstand */
+        line-height: 1.3; /* Kompaktere Zeilenhöhe */
     }
 
-    .card {
-        flex: 1 1 calc(50% - 1rem); /* Karten nehmen 50% der Breite ein */
-        margin: 0 auto;
+    .code-display h3 {
+        font-size: 1rem; /* Kleinere Überschrift für Codebereich */
+    }
+
+    .code-display pre {
+        font-size: 0.85rem; /* Schriftgröße des Codes reduzieren */
     }
 }
 
-/* Mobile Ansicht */
-@media (max-width: 768px) {
+/* Smartphones und sehr kleine Tablets (max-width: 480px) */
+@media (max-width: 480px) {
+    header {
+        gap: 0.5rem; /* Weniger Abstand zwischen Header-Elementen */
+    }
+
+    header h1 {
+        font-size: 1.3rem; /* Noch kleinere Schriftgröße */
+    }
+
+    .back-button {
+        font-size: 0.8rem; /* Button-Schrift verkleinern */
+        width: 10px;
+        padding: 0.3rem 0.6rem; /* Kleinere Button-Größe */
+        text-align: center;
+    }
+
+    .intro-section, .promise-section, .async-section {
+        padding: 1rem; /* Weniger Außenabstand */
+    }
+
+    p {
+        font-size: 0.9rem; /* Kleinere Schriftgröße für Absätze */
+        text-align: justify; /* Text ausrichten */
+        margin: 0.5rem 0; /* Weniger Abstand zwischen Absätzen */
+    }
+
+    .output-container pre, .code-display pre {
+        font-size: 0.75rem; /* Sehr kleine Schrift für Code */
+    }
+}
+
+/* Sehr große Bildschirme (min-width: 1200px) */
+@media (min-width: 1200px) {
     main {
-        padding: 1.5rem;
+        max-width: 900px; /* Beschränkt die Breite */
+        margin: 0 auto; /* Zentriert den Inhalt */
     }
 
-    .progress-bar-container {
-        height: 15px; /* Reduzierte Höhe für kleinere Geräte */
+    pre {
+        font-size: 1rem; /* Größere Schriftgröße */
     }
 
-    #progress-percentage {
-        font-size: 1rem;
-    }
-
-    .restart-button {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .cards-container {
-        flex-direction: column; /* Karten untereinander anordnen */
-        gap: 1rem; /* Abstand zwischen den Karten */
-    }
-
-    .card {
-        flex: 1 1 100%; /* Karten nehmen die gesamte Breite ein */
-        margin: 0 auto; /* Karten zentrieren */
+    .code-display pre {
+        font-size: 1rem; /* Einheitlich für größere Displays */
     }
 }

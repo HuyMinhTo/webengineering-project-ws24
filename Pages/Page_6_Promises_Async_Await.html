@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises und Async/Await</title>
+    <link rel="stylesheet" href="../css/pages/page6/pages_promises_async_styles.css">
+    <link rel="stylesheet" href="../css/pages/page6/pages_promises_async_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Promises und Async/Await</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
+</header>
+<main>
+    <section class="intro-section">
+        <h2>Was sind Promises und Async/Await?</h2>
+        <p>
+            Promises und Async/Await ermöglichen es uns, asynchrone Aufgaben in JavaScript effizient und lesbar zu handhaben.
+            Hier siehst du praktische Beispiele, wie diese Konzepte funktionieren.
+        </p>
+        <p>
+            Möchtest du die Textdateien direkt ansehen? Klicke hier:
+            <a href="../assets/txt/A.txt" target="._blank">A.txt</a> |
+            <a href="../assets/txt/B.txt" target="_blank">B.txt</a>
+        </p>
+    </section>
+
+    <!-- Promise Showcase -->
+    <section class="promise-section">
+        <h2>1. Promise-Methode</h2>
+        <p>
+            Die Dateien <code>A.txt</code> und <code>B.txt</code> werden parallel geladen und zeilenweise kombiniert.
+        </p>
+        <div class="output-container">
+            <button onclick="runPromiseExample()">Ausführen</button>
+            <pre id="promise-output"></pre>
+        </div>
+        <div class="code-display">
+            <h3>Verwendeter Code:</h3>
+            <pre>
+Promise.all([
+    fetch('assets/txt/A.txt').then(res => res.text()),
+    fetch('assets/txt/B.txt').then(res => res.text())
+])
+.then(([dataA, dataB]) => {
+    const linesA = dataA.split("\n");
+    const linesB = dataB.split("\n");
+    const combined = linesA.map((line, i) => line + (linesB[i] ? " " + linesB[i] : ""));
+    document.getElementById("promise-output").textContent = combined.join("\n");
+})
+.catch(error => console.error(error));
+            </pre>
+        </div>
+    </section>
+
+    <!-- Async/Await Showcase -->
+    <section class="async-section">
+        <h2>2. Async/Await-Methode</h2>
+        <p>
+            Hier wird die gleiche Aufgabe mit <code>async/await</code> gelöst.
+        </p>
+        <div class="output-container">
+            <button onclick="runAsyncExample()">Ausführen</button>
+            <pre id="async-output"></pre>
+        </div>
+        <div class="code-display">
+            <h3>Verwendeter Code:</h3>
+            <pre>
+async function fetchAndCombine() {
+    try {
+        const [responseA, responseB] = await Promise.all([
+            fetch('assets/txt/A.txt'),
+            fetch('assets/txt/B.txt')
+        ]);
+        const dataA = await responseA.text();
+        const dataB = await responseB.text();
+        const linesA = dataA.split("\n");
+        const linesB = dataB.split("\n");
+        const combined = linesA.map((line, i) => line + (linesB[i] ? " " + linesB[i] : ""));
+        document.getElementById("async-output").textContent = combined.join("\n");
+    } catch (error) {
+        console.error(error);
+    }
+}
+            </pre>
+        </div>
+    </section>
+</main>
+<script src="../js/pages/pages_6_promises_async.js"></script>
+</body>
+</html>
