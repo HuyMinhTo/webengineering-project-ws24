@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .back-button{
+        width: 20%;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

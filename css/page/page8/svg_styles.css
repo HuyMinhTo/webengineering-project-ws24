@@ -1,0 +1,90 @@
+/* ===========================
+   Allgemeine Stile
+=========================== */
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header {
+    background-color: #1A2238;
+    color: #FFFFFF;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #5E81AC;
+    text-shadow: 0 0 10px rgba(94, 129, 172, 0.7);
+}
+
+button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.section-container {
+    background-color: #2A2D40;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===========================
+   SVG-Effekte
+=========================== */
+
+.svg-example {
+    transition: transform 0.3s ease-in-out;
+    width: 200px;
+    height: 200px;
+    margin: 1rem auto;
+}
+
+
+.hover-svg:hover {
+    transform: scale(1.5);
+}
+
+.rotate-svg:hover {
+    transform: rotate(90deg);
+}
+
+.translate-svg:hover {
+    transform: translate(40px, 40px);
+}
+
+.skew-svg:hover {
+    transform: skewX(20deg);
+}

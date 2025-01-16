@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Showcase</title>
+    <link rel="stylesheet" href="../../css/page/page7/api_styles.css">
+    <link rel="stylesheet" href="../../css/page/page7/api_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>API</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
+</header>
+<main>
+
+    <section class="section-container">
+        <h2>Was sind APIs?</h2>
+        <p>
+            APIs (Application Programming Interfaces) sind Schnittstellen, die es ermöglichen, Daten und Funktionen
+            zwischen verschiedenen Anwendungen oder Diensten auszutauschen. Sie sind ein zentraler Bestandteil moderner
+            Webentwicklung, da sie es erlauben, externe Dienste wie Wetterinformationen oder Datei-Uploads
+            nahtlos in eigene Projekte zu integrieren.
+        </p>
+        <p>
+            Auf dieser Page zeige ich dir die Verwendung der <strong>Fetch-API</strong> zum Abrufen von Wetterdaten
+            und eine <strong>File Upload-API</strong> zum Hochladen und Verarbeiten von Dateien.
+        </p>
+    </section>
+
+
+    <!-- Fetch API Section -->
+    <section class="section-container">
+        <h2>Fetch-API</h2>
+        <p>Erhalte das aktuelle Wetter in Sankt Augustin.</p>
+        <button onclick="fetchWeather()">Wetter abrufen</button>
+        <pre id="weather-output"></pre>
+    </section>
+
+    <!-- File Upload API Section -->
+    <section class="section-container">
+        <h2>File Upload-API</h2>
+        <p>Lade eine Datei hoch und zeige die Dateiinformationen an.</p>
+        <input type="file" id="file-input">
+        <button onclick="handleFileUpload()">Datei hochladen</button>
+        <pre id="file-output"></pre>
+    </section>
+</main>
+<script src="../../js/pages/pages_7_api.js"></script>
+</body>
+</html>

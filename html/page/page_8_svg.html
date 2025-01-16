@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Showcase</title>
+    <link rel="stylesheet" href="../../css/page/page8/svg_styles.css">
+    <link rel="stylesheet" href="../../css/page/page8/svg_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>SVG</h1>
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        <i class="fa-solid fa-arrow-left"></i> Home
+    </button>
+</header>
+<main>
+    <!-- Transformationen Showcase -->
+    <section class="section-container">
+        <h2>SVG-Transformationen</h2>
+        <p>Interagiere mit den SVG-Elementen, um Transformationen wie Rotation, Verschiebung und Verzerrung zu sehen.</p>
+
+        <!-- Skalierung -->
+        <h3>1. Skalierung</h3>
+        <svg class="svg-example hover-svg">
+            <rect x="50" y="50" width="100" height="100" fill="#6baed6"></rect>
+        </svg>
+        <p>Hover über das blaue Quadrat, um eine Skalierung auszulösen.</p>
+
+        <!-- Rotation -->
+        <h3>2. Rotation</h3>
+        <svg class="svg-example rotate-svg">
+            <polygon points="100,10 40,198 190,78 10,78 160,198" fill="#6baed6"></polygon>
+        </svg>
+        <p>Hover über den Stern, um ihn zu drehen.</p>
+
+        <!-- Translation -->
+        <h3>3. Translation (Verschiebung)</h3>
+        <svg class="svg-example translate-svg">
+            <circle cx="50" cy="50" r="40" fill="#6baed6"></circle>
+        </svg>
+        <p>Hover über den grünen Kreis, um eine Verschiebung zu sehen.</p>
+
+        <!-- Verzerrung (Skew) -->
+        <h3>4. Verzerrung (Skew)</h3>
+        <svg class="svg-example skew-svg">
+            <rect x="50" y="50" width="100" height="100" fill="#6baed6"></rect>
+        </svg>
+        <p>Hover über das rote Rechteck, um eine Verzerrung (Skew) zu sehen.</p>
+    </section>
+</main>
+</body>
+</html>
