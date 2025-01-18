@@ -6,7 +6,7 @@ header {
 
 .back-button {
     padding: 0.5rem;
-    height: auto; /* Passt die Höhe dynamisch an */
+    height: auto;
 }
 
 .memory-grid {

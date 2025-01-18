@@ -42,15 +42,15 @@
     }
 
     .input-row input, .input-row select {
-        width: 100%; /* Breite auf 100% setzen */
+        width: 100%;
     }
 
     .input-row button {
-        width: 100%; /* Buttons nehmen die volle Breite ein */
+        width: 100%;
     }
 
     #cars-output {
-        font-size: 0.9rem; /* Kleinere Schrift für kleinere Bildschirme */
+        font-size: 0.9rem;
     }
 }
 

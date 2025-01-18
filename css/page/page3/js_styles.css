@@ -45,7 +45,7 @@ header h1 {
 
 .back-button {
     width: auto; /* Keine automatische Anpassung an volle Breite */
-    max-width: 200px; /* Maximale Breite */
+    max-width: 200px;
     white-space: nowrap; /* Verhindert, dass der Text auf mehrere Zeilen umbricht */
     text-align: center;
     background-color: #5E81AC;

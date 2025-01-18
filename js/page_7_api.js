@@ -1,4 +1,4 @@
-// Fetch API for Weather
+// Fetch API für Weather
 async function fetchWeather() {
     const weatherOutput = document.getElementById('weather-output');
     weatherOutput.textContent = "Wetter wird geladen...";

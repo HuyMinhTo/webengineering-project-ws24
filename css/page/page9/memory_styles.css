@@ -13,8 +13,8 @@ header {
     background-color: #1A2238;
     padding: 1.5rem 2rem;
     display: flex;
-    align-items: center; /* Zentriert vertikal */
-    justify-content: space-between; /* Verteilt Text und Button */
+    align-items: center;
+    justify-content: space-between;
     color: #FFFFFF;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     position: sticky;

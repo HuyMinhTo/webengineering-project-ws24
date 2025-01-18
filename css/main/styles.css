@@ -3,11 +3,11 @@
 =========================== */
 
 body {
-    font-family: 'Roboto Mono', monospace; /* Minimalistische Schrift */
+    font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 0;
-    background-color: #1A2238; /* Dunkelblauer Hintergrund */
-    color: #FFFFFF; /* Weißer Text */
+    background-color: #1A2238;
+    color: #FFFFFF;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -19,7 +19,7 @@ body {
 =========================== */
 header {
     background-color: #1A2238; /* Dunkelblauer Hintergrund */
-    color: #FFFFFF; /* Weißer Text */
+    color: #FFFFFF;
     padding: 2.5rem;
     text-align: center;
     position: sticky;
@@ -42,7 +42,7 @@ header h1 {
 header h3 {
     font-size: 1.2rem;
     margin-top: 0.5rem;
-    color: #A5C9CA; /* Dezenter blauer Text */
+    color: #A5C9CA;
 }
 
 /* ===========================
@@ -94,7 +94,7 @@ footer {
     width: 100%;
     font-size: 0.9rem;
     padding: 1rem;
-    border-top: 2px solid #5E81AC; /* Hellblauer Trennstrich */
+    border-top: 2px solid #5E81AC;
 }
 
 /* ===========================

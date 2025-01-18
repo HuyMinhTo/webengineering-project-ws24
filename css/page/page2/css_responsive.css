@@ -2,95 +2,95 @@
    Responsive Styles
 =========================== */
 
-/* Kleinere Tablets und größere Smartphones (max-width: 768px) */
+/*(max-width: 768px) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Header-Elemente übereinander anordnen */
-        align-items: center; /* Elemente zentrieren */
-        gap: 1rem; /* Abstand zwischen Header-Elementen */
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
     header h1 {
-        font-size: 1.5rem; /* Verkleinert die Schriftgröße des Titels */
-        text-align: center; /* Text zentrieren */
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     .back-button {
-        font-size: 0.9rem; /* Kleinere Schriftgröße */
-        padding: 0.4rem 0.8rem; /* Kleinere Button-Größe */
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
         width: auto; /* Breite automatisch anpassen */
-        border-radius: 5px; /* Runde Ecken */
+        border-radius: 5px;
     }
 
     main {
-        padding: 1.5rem; /* Weniger Innenabstand */
+        padding: 1.5rem;
     }
 
     .output-container button {
-        width: 100%; /* Button auf volle Breite */
-        font-size: 0.9rem; /* Kleinere Schriftgröße */
-        padding: 0.6rem; /* Weniger Platz */
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.6rem;
     }
 
     pre {
-        font-size: 0.85rem; /* Kleinere Schriftgröße */
-        padding: 0.8rem; /* Weniger Innenabstand */
-        line-height: 1.3; /* Kompaktere Zeilenhöhe */
+        font-size: 0.85rem;
+        padding: 0.8rem;
+        line-height: 1.3;
     }
 
     .code-display h3 {
-        font-size: 1rem; /* Kleinere Überschrift für Codebereich */
+        font-size: 1rem;
     }
 
     .code-display pre {
-        font-size: 0.85rem; /* Schriftgröße des Codes reduzieren */
+        font-size: 0.85rem;
     }
 }
 
 /* Smartphones und sehr kleine Tablets (max-width: 480px) */
 @media (max-width: 480px) {
     header {
-        gap: 0.5rem; /* Weniger Abstand zwischen Header-Elementen */
+        gap: 0.5rem;
     }
 
     header h1 {
-        font-size: 1.3rem; /* Noch kleinere Schriftgröße */
+        font-size: 1.3rem;
     }
 
     .back-button {
-        font-size: 0.8rem; /* Button-Schrift verkleinern */
+        font-size: 0.8rem;
         width: 10px;
-        padding: 0.3rem 0.6rem; /* Kleinere Button-Größe */
+        padding: 0.3rem 0.6rem;
         text-align: center;
     }
 
     .intro-section, .promise-section, .async-section {
-        padding: 1rem; /* Weniger Außenabstand */
+        padding: 1rem;
     }
 
     p {
-        font-size: 0.9rem; /* Kleinere Schriftgröße für Absätze */
-        text-align: justify; /* Text ausrichten */
-        margin: 0.5rem 0; /* Weniger Abstand zwischen Absätzen */
+        font-size: 0.9rem;
+        text-align: justify;
+        margin: 0.5rem 0;
     }
 
     .output-container pre, .code-display pre {
-        font-size: 0.75rem; /* Sehr kleine Schrift für Code */
+        font-size: 0.75rem;
     }
 }
 
 /* Sehr große Bildschirme (min-width: 1200px) */
 @media (min-width: 1200px) {
     main {
-        max-width: 900px; /* Beschränkt die Breite */
-        margin: 0 auto; /* Zentriert den Inhalt */
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     pre {
-        font-size: 1rem; /* Größere Schriftgröße */
+        font-size: 1rem;
     }
 
     .code-display pre {
-        font-size: 1rem; /* Einheitlich für größere Displays */
+        font-size: 1rem;
     }
 }

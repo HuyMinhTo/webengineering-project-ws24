@@ -78,7 +78,7 @@ pre {
     font-family: 'Roboto Mono', monospace;
     overflow-x: auto;
     display: flex;
-    text-align: left; /* Vertikale Zentrierung */
+    text-align: left;
 }
 
 

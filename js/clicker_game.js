@@ -2,7 +2,7 @@ let score = 0;
 let timer = 10;
 let interval;
 const highscoreList = [];
-let timerStarted = false; // Neue Variable, um den Timer-Status zu verfolgen
+let timerStarted = false;
 
 function startGame() {
     // Reset score, timer und Timer-Status
@@ -10,7 +10,7 @@ function startGame() {
     timer = 10;
     timerStarted = false;
 
-    // Update the UI
+    // UI aktualisieren
     document.getElementById("score").textContent = score;
     document.getElementById("timer").textContent = timer;
     document.getElementById("click-button").disabled = false;
@@ -61,5 +61,5 @@ document.getElementById("click-button").addEventListener("click", () => {
 
 document.getElementById("restart-button").addEventListener("click", startGame);
 
-// Initialize the game when the page loads
+
 window.onload = startGame;
