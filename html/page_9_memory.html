@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="page9css">
+    <link rel="stylesheet" href="page9ive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Memory Game</h1>
+    <button class="back-button" onclick="window.location.href='index.html'">
+        <i class="fa-solid fa-arrow-left"> </i> Home
+    </button>
+</header>
+<main>
+    <section class="game-section">
+        <h2>Finde alle Kartenpaare!</h2>
+        <div id="memory-grid" class="memory-grid"></div>
+        <button id="restart-button" onclick="startGame()">Neu starten</button>
+    </section>
+</main>
+<script src="../js/memory_game.js"></script>
+</body>
+</html>

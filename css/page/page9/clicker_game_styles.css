@@ -1,0 +1,144 @@
+/* ===========================
+   Allgemeine Stile
+=========================== */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===========================
+   Header-Section
+=========================== */
+header {
+    background-color: #1A2238;
+    color: #FFFFFF;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #5E81AC;
+    text-shadow: 0 0 10px rgba(94, 129, 172, 0.7);
+}
+
+.back-button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #A5C9CA;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Spielcontainer
+=========================== */
+.game-container {
+    background-color: #2A2D40;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.score-display p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+#click-button, #restart-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#click-button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    margin-top: 1rem;
+}
+
+#click-button:hover {
+    background-color: #A5C9CA;
+    transform: scale(1.05);
+}
+
+#restart-button {
+    background-color: #A5C9CA;
+    color: #1A2238;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+#restart-button:hover {
+    background-color: #5E81AC;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   Highscore-Liste
+=========================== */
+.highscore-container {
+    background-color: #2A2D40;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highscore-container h2 {
+    font-size: 1.8rem;
+    color: #A5C9CA;
+}
+
+#highscore-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    text-align: left;
+}
+
+#highscore-list li {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #1A2238;
+    border-radius: 5px;
+    border: 1px solid #5E81AC;
+}

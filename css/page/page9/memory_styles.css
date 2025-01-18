@@ -1,0 +1,99 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #1A2238;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1A2238;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center; /* Zentriert vertikal */
+    justify-content: space-between; /* Verteilt Text und Button */
+    color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #5E81AC;
+}
+
+.back-button {
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #A5C9CA;
+    transform: scale(1.05);
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #5E81AC;
+    color: #1A2238;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #A5C9CA;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    background-color: #2A2D40;
+    border: 2px solid #5E81AC;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.memory-card.flipped {
+    background-color: #5E81AC;
+    color: #1A2238;
+    transform: rotateY(180deg);
+}

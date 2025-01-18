@@ -1,0 +1,19 @@
+/* ===========================
+    Responsive Styles
+=========================== */
+@media (max-width: 600px) {
+    .board {
+        width: 240px;
+        gap: 3px;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+    }
+
+    #restart-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

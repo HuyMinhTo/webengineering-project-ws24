@@ -1,0 +1,50 @@
+/* ===========================
+   Responsive Styles
+=========================== */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #click-button, #restart-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .score-display p {
+        font-size: 1rem;
+    }
+
+    .highscore-container h2 {
+        font-size: 1.5rem;
+    }
+
+    #highscore-list li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .game-container, .highscore-container {
+        padding: 1rem;
+    }
+
+    #click-button, #restart-button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}

@@ -1,0 +1,21 @@
+header {
+    padding: 1rem 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.back-button {
+    padding: 0.5rem;
+    height: auto; /* Passt die Höhe dynamisch an */
+}
+
+.memory-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.memory-card {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+}
