@@ -26,7 +26,7 @@ Ziel war es, moderne Webentwicklung mit **HTML, CSS und JavaScript** ohne Framew
 
 ## 📸 Vorschau
 
-![alt text](assets\images\image_starting_page.png)
+![alt text](./assets/images/image_starting_page.png)
 
 ## 📎 Autor
 
